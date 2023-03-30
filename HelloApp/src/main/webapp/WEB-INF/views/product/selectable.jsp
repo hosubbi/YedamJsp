@@ -59,8 +59,25 @@
       },
       eventClick: function(arg) {
         if (confirm('이벤트를 삭제하시겠습니까?')) {
+        	console.log("title" + arg.event.title);
+        	console.log("start" + arg.event.startStr);
+        	console.log("end" + arg.event.endStr);
+          fetch('calendarDeleteAjax.do',{
+        		method: 'post',
+        		headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        		body: 'title=' + arg.event.title/* + '&start=' + arg.events.startStr + '&end=' + arg.events.endStr */
+        	})
+          .then(resolve => resolve.json())
+          .then(result => {
+        		console.log(result);
+        		
+        	})
+          .catch(reject => console.error(reject))
           arg.event.remove()
+          
+          
         }
+        
       },
       editable: true,
       dayMaxEvents: true, // allow "more" link when too many events

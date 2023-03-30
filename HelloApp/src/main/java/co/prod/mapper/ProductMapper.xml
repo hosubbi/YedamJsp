@@ -54,4 +54,9 @@
 	<insert id="insertCalender" parameterType="CalendarVO">
 		insert into full_calender values (#{title} , #{startDate} , #{endDate})
 	</insert>
+	
+	<delete id="deleteCalender" parameterType="int">
+		delete from full_calender
+		where title = #{title}
+	</delete>
 </mapper>

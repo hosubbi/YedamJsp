@@ -25,8 +25,10 @@ public interface ProductMapper {
 	
 	// chart.부서별인원현황.
 	public List<Map<String, Object>> chartInfo();
-	
+	// 캘린더 리스트
 	public List<CalendarVO> calenderList();
-	
+	// 캘린더추가
 	public int insertCalender(CalendarVO vo);
+	// 캘린더삭제
+	public int deleteCalender(int title);
 }

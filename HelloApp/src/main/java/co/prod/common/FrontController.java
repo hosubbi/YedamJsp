@@ -28,6 +28,7 @@ import co.prod.controller.ReplyRemoveAjax;
 import co.prod.controller.ReplySearchAjax;
 import co.prod.controller.ReplyUpdateAjax;
 import co.prod.controller.Calendar;
+import co.prod.controller.CalendarDeleteAjax;
 import co.prod.controller.CalendarForm;
 import co.prod.controller.CalendarInsertAjax;
 
@@ -79,6 +80,8 @@ public class FrontController extends HttpServlet {
 		map.put("/calendar.do", new Calendar());
 		// selectable 등록
 		map.put("/calendarInsertAjax.do", new CalendarInsertAjax());
+		// delete 해보기
+		map.put("/calendarDeleteAjax.do", new CalendarDeleteAjax());
 	}
 
 	@Override
