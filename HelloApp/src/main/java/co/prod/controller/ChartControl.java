@@ -9,7 +9,7 @@ public class ChartControl implements Control {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		return "product/chart.tiles";
+		return "product/chart2.tiles";
 	}
 
 }

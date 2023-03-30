@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.prod.controller.ChartAjax;
 import co.prod.controller.ChartControl;
+import co.prod.controller.CovidForm;
+import co.prod.controller.MapForm;
 import co.prod.controller.MemberAddAjax;
 import co.prod.controller.MemberListAjax;
 import co.prod.controller.MemberListControl;
@@ -25,6 +27,9 @@ import co.prod.controller.ReplyListAjax;
 import co.prod.controller.ReplyRemoveAjax;
 import co.prod.controller.ReplySearchAjax;
 import co.prod.controller.ReplyUpdateAjax;
+import co.prod.controller.Calendar;
+import co.prod.controller.CalendarForm;
+import co.prod.controller.CalendarInsertAjax;
 
 public class FrontController extends HttpServlet {
 
@@ -64,6 +69,16 @@ public class FrontController extends HttpServlet {
 		map.put("/chart.do", new ChartControl());
 		// chart 데이터
 		map.put("/chartAjax.do", new ChartAjax());
+		// covid
+		map.put("/covid19.do", new CovidForm());
+		// map api.
+		map.put("/map.do", new MapForm());
+		// selectable 리스트 ajax
+		map.put("/calendarAjax.do", new CalendarForm());
+		// selectable 열기
+		map.put("/calendar.do", new Calendar());
+		// selectable 등록
+		map.put("/calendarInsertAjax.do", new CalendarInsertAjax());
 	}
 
 	@Override
