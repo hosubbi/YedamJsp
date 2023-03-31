@@ -30,5 +30,5 @@ public interface ProductMapper {
 	// 캘린더추가
 	public int insertCalender(CalendarVO vo);
 	// 캘린더삭제
-	public int deleteCalender(int title);
+	public int deleteCalender(CalendarVO vo);
 }

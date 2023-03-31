@@ -66,7 +66,7 @@ public class ProductServiceImpl implements ProductService {
 		return mapper.insertCalender(vo) == 1;
 	}
 	@Override
-	public boolean delCalendar(int title) {
-		return mapper.deleteCalender(title) == 1;
+	public boolean delCalendar(CalendarVO vo) {
+		return mapper.deleteCalender(vo) == 1;
 	}
 }

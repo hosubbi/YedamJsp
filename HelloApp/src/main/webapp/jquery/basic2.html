@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>basic2.html</title>
+    <script src="./jquery-3.6.4.min.js"></script>
+    <script>
+        // page 컨텐츠 다운로드 된 다음에 script실행.
+        //document.addEventListener('DOMContentLoaded', function(){
+        //})
+        $(document).ready(function () {
+            // elem.innerHTML = '<ul id="list"><li>Apple</li></ul>'
+            $('div#show').html('<ul id="list"><li>Apple</li></ul>'); 
+
+            // createElement
+            let li = $('<li>Banana</li>')//.text('Banana')
+                .css('color', 'red')
+                .attr('class', 'important');
+            // li.text('Banana');
+            console.log(li);
+            $('#list').append(li);
+            $('#list').append($('<li>Cherry</li>'),
+                              $('<li />').text('Melon'),
+                              $('<li />').text('Grape').on('click', function() {alert('clicked')})
+                              );
+                
+            $('li:eq(3)').css('background-color', 'yellow'); // 3인것에 적용
+            $('li:gt(2)').css('font-size', 'large'); // 2보다 큰 것들에게 적용
+            $('li:not(:eq(0))').css('font-style', 'italic'); // 0이 아닌것들 적용
+            $('li:contains(Melon)').css('font-weight', 'bold'); // Melon을 포함하는 것들에게 적용
+
+            // input
+            $('input:text').val('user01');
+            $('input[type="email"]').css('background-color', 'yellow');
+       
+        });
+        
+    </script>
+</head>
+<body>
+    <div id="show">
+        <!-- 
+        <ul>
+            <li>Apple</li>
+            <li>Banana</li>
+            <li>Cherry</li>
+        </ul>
+         -->
+    </div>
+    
+    <form action="">
+        Id: <input type="text" name="" id=""><br>
+        Pw: <input type="password" name="" id=""><br>
+        Mail: <input type="email" name="" id=""><br>
+    </form>
+
+</body>
+</html>

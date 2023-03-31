@@ -59,13 +59,17 @@
       },
       eventClick: function(arg) {
         if (confirm('이벤트를 삭제하시겠습니까?')) {
-        	console.log("title" + arg.event.title);
-        	console.log("start" + arg.event.startStr);
-        	console.log("end" + arg.event.endStr);
+        	console.log("t:" + arg.event.title)
+        	console.log("s: " + arg.event.startStr)
+        	console.log("d: " + arg.event.endStr)
+          arg.event.remove()
+          
+          
+        }
           fetch('calendarDeleteAjax.do',{
         		method: 'post',
         		headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-        		body: 'title=' + arg.event.title/* + '&start=' + arg.events.startStr + '&end=' + arg.events.endStr */
+        		body: 'title=' + arg.event.title + '&start=' + arg.event.startStr + '&end=' + arg.event.endStr 
         	})
           .then(resolve => resolve.json())
           .then(result => {
@@ -73,10 +77,6 @@
         		
         	})
           .catch(reject => console.error(reject))
-          arg.event.remove()
-          
-          
-        }
         
       },
       editable: true,

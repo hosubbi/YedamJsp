@@ -30,5 +30,5 @@ public interface ProductService {
 	//캘린더 등록
 	public boolean inCalendar(CalendarVO vo);
 	//캘린더 삭제
-	public boolean delCalendar(int title);
+	public boolean delCalendar(CalendarVO vo);
 }
