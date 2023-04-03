@@ -3,6 +3,7 @@ package co.prod.mapper;
 import java.util.List;
 
 import co.prod.vo.MemberVO;
+import co.prod.vo.MembersVO;
 
 public interface MemberMapper {
 	// 매퍼(MemberMapper.xml) 에서 실행할 메소드 정의
@@ -16,4 +17,10 @@ public interface MemberMapper {
 	
 	// 회원등록.
 	public int insertMember(MemberVO vo);
+	
+	// 멤버 제이쿼리 리스트
+	public List<MembersVO> getMembersJ();
+	
+	// 회원등록 제이쿼리.
+	public int insertMembersJ(MembersVO vo);
 }

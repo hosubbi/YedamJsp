@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import co.prod.common.DataSource;
 import co.prod.mapper.MemberMapper;
 import co.prod.vo.MemberVO;
+import co.prod.vo.MembersVO;
 
 public class MemberServiceMybatis implements MemberService {
 
@@ -45,5 +46,17 @@ public class MemberServiceMybatis implements MemberService {
 	public MemberVO login(MemberVO vo) {
 		return mapper.login(vo);
 	}
+
+	@Override
+	public List<MembersVO> getMembersJ() {
+		return mapper.getMembersJ();
+	}
+
+	@Override
+	public boolean addMembers(MembersVO vo) {
+		return mapper.insertMembersJ(vo) == 1;
+	}
+	
+	
 
 }
