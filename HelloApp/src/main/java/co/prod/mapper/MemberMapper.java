@@ -2,6 +2,7 @@ package co.prod.mapper;
 
 import java.util.List;
 
+import co.prod.vo.EmpVO;
 import co.prod.vo.MemberVO;
 import co.prod.vo.MembersVO;
 
@@ -23,4 +24,16 @@ public interface MemberMapper {
 	
 	// 회원등록 제이쿼리.
 	public int insertMembersJ(MembersVO vo);
+	
+	// 다건삭제.
+	public int deleteMembersAry(String[] users);
+	
+	// 사원목록.
+	public List<EmpVO> selectEmployees();
+	
+	// 사원등록
+	public int insertEmp(EmpVO vo);
+	
+	// 사원삭제
+	public int deleteEmp(int id);
 }

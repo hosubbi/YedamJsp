@@ -9,6 +9,7 @@
 
 	<settings>
 		<setting name="mapUnderscoreToCamelCase" value="true" />
+		<setting name="logImpl" value="LOG4J" />
 	</settings>
 
 	<typeAliases>
@@ -16,6 +17,7 @@
 		<typeAlias type="co.prod.vo.ReplyVO" alias="ReplyVO" />
 		<typeAlias type="co.prod.vo.CalendarVO" alias="CalendarVO" />
 		<typeAlias type="co.prod.vo.MembersVO" alias="MemebersVO" />
+		<typeAlias type="co.prod.vo.EmpVO" alias="EmpVO" />
 	</typeAliases>
 
 	<environments default="development">

@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import co.prod.common.DataSource;
 import co.prod.mapper.MemberMapper;
+import co.prod.vo.EmpVO;
 import co.prod.vo.MemberVO;
 import co.prod.vo.MembersVO;
 
@@ -57,6 +58,23 @@ public class MemberServiceMybatis implements MemberService {
 		return mapper.insertMembersJ(vo) == 1;
 	}
 	
+	public boolean removeMembersAry(String[] users) {
+		return mapper.deleteMembersAry(users) > 0;
+	}
+
+	@Override
+	public List<EmpVO> employeeList() {
+		return mapper.selectEmployees();
+	}
 	
+	@Override
+	public boolean addEmp(EmpVO vo) {
+		return mapper.insertEmp(vo) == 1;
+	}
+
+	@Override
+	public boolean delEmp(int id) {
+		return mapper.deleteEmp(id) == 1;
+	}
 
 }

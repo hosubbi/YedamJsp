@@ -38,4 +38,27 @@
   	</foreach>
   </update>
   
+  <update id="deleteMembersAry" parameterType="string">
+  	delete from members
+  	<foreach collection="array" item="item" open=" where member_id in (" close=")" separator=",">
+  	#{item}
+  	</foreach>
+  </update>
+  
+  <select id="selectEmployees" resultType="co.prod.vo.EmpVO">
+  	select * from employees order by employee_id
+  </select>
+  
+  <insert id="insertEmp" parameterType="co.prod.vo.EmpVO">
+  		<selectKey keyProperty="employeeId" resultType="int" order="BEFORE">
+	        select employees_seq.nextval from dual
+	    </selectKey>
+  insert into employees (employee_id, first_name, last_name, email, job_id, hire_date, salary)
+  values (#{employeeId}, #{firstName}, #{lastName}, #{email}, 'IT_PROG', #{hireDate}, #{salary})
+  </insert>
+  
+  <delete id="deleteEmp" parameterType="int">
+  	delete from employees where employees_id = #{employeeId}
+  </delete>
+
 </mapper>

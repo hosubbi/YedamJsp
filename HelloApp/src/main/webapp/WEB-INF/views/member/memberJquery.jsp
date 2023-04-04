@@ -27,7 +27,7 @@
                     console.log(idx, member);
                     $('#list').append(
                         // tr>td*4 생성.
-                        $('<tr id='+ member.memberId +'/>').append($('<td />').text(member.memberId),
+                        $('<tr id='+ member.memberId + ' />').append($('<td />').text(member.memberId),
                                            $('<td />').text(member.memberName),
                                            $('<td />').text(member.memberAddr),
                                            $('<td />').text(member.memberTel),
@@ -62,7 +62,7 @@
             }
 	        // ajax호출.
 	        $.ajax({
-			    url: "memberAddJquery.do", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소
+			    url: "dataTableAdd.do", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소
 			    data: { id: $('#id').val(), name: $('#name').val(), addr: $('#addr').val(), tel: $('#tel').val(), passwd: $('#passwd').val() }, // HTTP 요청과 함께 서버로 보낼 데이터
 			    //console.log($('#id').val() + $('#name').val() + $('#addr').val() + $('#tel').val() + $('#passwd').val());
 			   
@@ -123,13 +123,13 @@
         // 체크박스 선택 되어있는것 삭제
         $('#delSelected').on('click', function(e) {
             e.preventDefault();
-            let memberIdAray = {}
+            let memberIdAray = ''; // memberId=user01&memberID=user02&memberId=user03
             //$('#list input:checked').closest('tr').remove();
-
+			
             $('#list input:checked').each(function (idx, item) {
-            	console.log($(item).parent().parent().attr('id'))
-            	memberIdAray.memberId = $(item).parent().parent().attr('id');
-                //$(item).closest('tr').remove(); // closest 가장 먼저나오는 tr제거
+            	console.log($(item).parent().parent().attr('id'));
+            	memberIdAray += '&memberId=' + $(item).parent().parent().attr('id');
+                $(item).closest('tr').remove(); // closest 가장 먼저나오는 tr제거
             })
             console.log(memberIdAray);
             
@@ -137,9 +137,12 @@
             $.ajax({
             	url: 'memberRemoveJquery.do', // 호출할 컨트롤
             	method: 'post',
-            	data: {memeberIdAray:'user01', memeberIdAray:'user02'}, // memberId=user01&memberId=user02
+            	data: memberIdAray.substring(1), // memberId=user01&memberId=user02
             	success: function (result) {
-            		
+            		if (result.retCode == 'Success')
+            			$('#list input:checked').closest('tr').remove();
+            		else
+            			alert('error !!');
             	},
             	error: function (reject) {
             		console.log(reject)
